@@ -30,3 +30,7 @@ npx json-server --watch db.json --port 3000
 - `app.js` - Frontend JavaScript code
 - `db.json` - Quiz questions database
 - `styles.css` - Styling for the quiz
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests for new features or improvements.
