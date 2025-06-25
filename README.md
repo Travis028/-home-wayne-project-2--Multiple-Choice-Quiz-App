@@ -25,3 +25,8 @@ npx json-server --watch db.json --port 3000
 3. Open `index.html` in your web browser
 
 ## Project Structure
+
+- `index.html` - Main HTML file
+- `app.js` - Frontend JavaScript code
+- `db.json` - Quiz questions database
+- `styles.css` - Styling for the quiz
