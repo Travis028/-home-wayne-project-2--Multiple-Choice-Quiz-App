@@ -1,0 +1,21 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  margin-top: 50px;
+}
+#choices {
+  list-style: none;
+  padding: 0;
+}
+#choices li {
+  margin: 10px 0;
+}
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+#result {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}

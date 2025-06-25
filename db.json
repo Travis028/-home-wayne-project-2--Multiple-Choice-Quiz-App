@@ -1,0 +1,22 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the capital city of Kenya?",
+      "choices": ["Nairobi", "Mombasa", "Kisumu", "Eldoret"],
+      "answer": "Nairobi"
+    },
+    {
+      "id": 2,
+      "question": "Which planet is known as the Red Planet?",
+      "choices": ["Earth", "Mars", "Venus", "Jupiter"],
+      "answer": "Mars"
+    },
+    {
+      "id": 3,
+      "question": "Who wrote 'Romeo and Juliet'?",
+      "choices": ["Chinua Achebe", "William Shakespeare", "Ngũgĩ wa Thiong’o", "Leo Tolstoy"],
+      "answer": "William Shakespeare"
+    }
+  ]
+}
