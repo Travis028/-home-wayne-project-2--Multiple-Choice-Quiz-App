@@ -34,3 +34,9 @@ npx json-server --watch db.json --port 3000
 ## Contributing
 
 Feel free to fork this repository and submit pull requests for new features or improvements.
+
+## License
+
+MIT License
+
+Copyright (c) 2025 Quiz Application Developers
