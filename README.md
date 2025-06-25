@@ -9,3 +9,14 @@ An interactive quiz application built with HTML, CSS, JavaScript, and JSON Serve
 - Score tracking
 - Clean and modern UI
 - Auto-advancing questions
+
+## Setup Instructions
+
+1. Install dependencies:
+```bash
+npm install -g json-server
+```
+
+2. Start the JSON server:
+```bash
+npx json-server --watch db.json --
