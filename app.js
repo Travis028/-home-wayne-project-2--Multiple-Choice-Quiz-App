@@ -25,24 +25,47 @@ fetch("http://localhost:3000/questions")
   questionEl.textContent = question.question;
   choicesEl.innerHTML = "";
 
+  // Create choice buttons
   question.choices.forEach(choice => {
     const li = document.createElement("li");
     const btn = document.createElement("button");
     btn.textContent = choice;
-    btn.onclick = () => checkAnswer(choice, question.answer);
+    btn.classList.add('choice-btn');
     li.appendChild(btn);
-      choicesEl.appendChild(li);
+    choicesEl.appendChild(li);
+  });
+
+  // Add event listeners to choice buttons
+  const choiceButtons = document.querySelectorAll('.choice-btn');
+  choiceButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const selected = this.textContent;
+      checkAnswer(selected, question.answer);
+    });
   });
 }
+
 function checkAnswer(selected, correct) {
-  const buttons = document.querySelectorAll("button");
+  const buttons = document.querySelectorAll('.choice-btn');
   buttons.forEach(btn => btn.disabled = true);
 
   if (selected === correct) {
     feedbackEl.textContent = "✅ Correct!";
     score++;
+    buttons.forEach(btn => {
+      if (btn.textContent === selected) {
+        btn.classList.add('correct');
+      }
+    });
   } else {
-    feedbackEl.textContent = `❌ Wrong! Correct answer: ${correct}`;
+    feedbackEl.textContent = ` Wrong! Correct answer: ${correct}`;
+    buttons.forEach(btn => {
+      if (btn.textContent === correct) {
+        btn.classList.add('correct');
+      } else if (btn.textContent === selected) {
+        btn.classList.add('incorrect');
+      }
+    });
   }
 
   // Automatically go to next question after 2 seconds
@@ -53,7 +76,7 @@ function checkAnswer(selected, correct) {
     } else {
       endQuiz();
     }
-  }, 2000); // wait 2 seconds
+  }, 2000);
 }
 
 //function checkAnswer(selected, correct) {
