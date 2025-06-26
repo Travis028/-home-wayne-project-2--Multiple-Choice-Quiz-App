@@ -1,16 +1,18 @@
-# Interactive Quiz Application
+# Multiple Choice Quiz App
 
-An interactive quiz application built with HTML, CSS, JavaScript, and JSON Server.
+A modern, interactive multiple-choice quiz application built with HTML, CSS, and JavaScript.
 
 ## Features
 
-- Multiple choice questions
-- Instant feedback on answers
+- Interactive multiple-choice questions
+- Real-time feedback for correct/incorrect answers
 - Score tracking
-- Clean and modern UI
-- Auto-advancing questions
+- Automatic progression to next question
+- Modern, responsive UI design
+- Visual feedback for answer selection
+- End-of-quiz score summary
 
-## Setup Instructions
+## Setup
 
 1. Install dependencies:
 ```bash
