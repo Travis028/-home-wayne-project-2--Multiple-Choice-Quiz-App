@@ -10,6 +10,47 @@ const nextBtn = document.getElementById("next-btn");
 const startAgainBtn = document.getElementById("start-again-btn");
 const toggleBtn = document.getElementById("toggle-theme");
 
+// Theme toggle functionality
+let isDark = false;
+
+// Initialize theme based on system preference
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+if (prefersDarkScheme.matches) {
+  document.body.classList.add('dark-mode');
+  isDark = true;
+  toggleBtn.textContent = "Light Mode";
+} else {
+  toggleBtn.textContent = "Dark Mode";
+}
+
+// Listen for system theme changes
+prefersDarkScheme.addEventListener('change', (e) => {
+  if (e.matches) {
+    document.body.classList.add('dark-mode');
+    isDark = true;
+    toggleBtn.textContent = "Light Mode";
+  } else {
+    document.body.classList.remove('dark-mode');
+    isDark = false;
+    toggleBtn.textContent = "Dark Mode";
+  }
+});
+
+// Theme toggle functionality
+toggleBtn.addEventListener("click", () => {
+  isDark = !isDark;
+  document.body.classList.toggle("dark-mode", isDark);
+  toggleBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+});
+
+// Add hover effect for theme toggle button
+toggleBtn.addEventListener("mouseover", () => {
+  toggleBtn.style.transform = "scale(1.05)";
+});
+toggleBtn.addEventListener("mouseout", () => {
+  toggleBtn.style.transform = "scale(1)";
+});
+
 fetch("http://localhost:3000/questions")
   .then(res => res.json())
   .then(data => {
@@ -82,6 +123,19 @@ function checkAnswer(selected, correct) {
   }, 2000);
 }
 
+//function checkAnswer(selected, correct) {
+  //const buttons = document.querySelectorAll("button");
+  //buttons.forEach(btn => btn.disabled = true);
+  //if (selected === correct) {
+    //feedbackEl.textContent = "✅ Correct!";
+    //score++;
+  //} else {
+    //feedbackEl.textContent = `❌ Wrong! Correct answer: ${correct}`;
+  //}
+
+  //nextBtn.style.display = "inline-block";
+//}
+
 nextBtn.addEventListener("click", () => {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
@@ -99,10 +153,10 @@ function endQuiz() {
   questionEl.textContent = `Quiz finished! Your score: ${score} / ${questions.length}`;
   
   if (score === questions.length) {
-    feedbackEl.textContent = "🏆 Congratulations! Perfect score!";
+    feedbackEl.textContent = "Congratulations! Perfect score!";
   }
   else if (score >= questions.length / 2) {
-    feedbackEl.textContent = "👍 Good job!";
+    feedbackEl.textContent = "Good job!";
   }
   choicesEl.innerHTML = "";
   nextBtn.style.display = "none";
@@ -124,9 +178,22 @@ function resetQuiz() {
       questionEl.textContent = "loading quiz.";
       console.error(err);
     });
-
+}
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     if (nextBtn.style.display !== "none") nextBtn.click();
   }
 });
+
+function endQuiz() {
+  questionEl.textContent = `Quiz finished! Your score: ${score} / ${questions.length}`;
+  
+  if (score === questions.length) {
+    feedbackEl.textContent = "🏆 Congratulations! Perfect score!";
+  }
+  else if (score >= questions.length / 2) {
+    feedbackEl.textContent = "👍 Good job!";
+  }
+  choicesEl.innerHTML = "";
+  nextBtn.style.display = "none";
+  startAgainBtn.style.display = "inline-block";}
