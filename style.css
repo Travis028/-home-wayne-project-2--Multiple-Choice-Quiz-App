@@ -54,6 +54,10 @@ button {
   margin: 2rem auto;
   animation: fadeIn 0.5s ease-in;
 }
+.container:hover {
+  transform: scale(1.02);
+}
+
 
 button {
   width: 100%;
