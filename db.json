@@ -17,6 +17,49 @@
       "question": "Who wrote 'Romeo and Juliet'?",
       "choices": ["Chinua Achebe", "William Shakespeare", "Ngũgĩ wa Thiong’o", "Leo Tolstoy"],
       "answer": "William Shakespeare"
+    },
+  
+    {
+      "id": 4,
+      "question": "What is the largest mammal in the world?",
+      "choices": ["Elephant", "Blue Whale", "Giraffe", "Great White Shark"],
+      "answer": "Blue Whale"
+    },
+    {
+      "id": 5,
+      "question": "Which country is known as the Land of the Rising Sun?",
+      "choices": ["China", "Japan", "South Korea", "Thailand"],
+      "answer": "Japan"
+    },
+    {
+      "id": 6,
+      "question": "What is the chemical symbol for gold?",
+      "choices": ["Au", "Ag", "Pb", "Fe"],
+      "answer": "Au"
+    },
+    {
+      "id": 7,
+      "question": "Who painted the Mona Lisa?",
+      "choices": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+      "answer": "Leonardo da Vinci"
+    },
+    {
+      "id": 8,
+      "question": "What is the main ingredient in guacamole?",
+      "choices": ["Tomato", "Avocado", "Pepper", "Onion"],
+      "answer": "Avocado"
+    },
+    {
+      "id": 9,
+      "question": "Which ocean is the largest?",
+      "choices": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+      "answer": "Pacific Ocean"
+    },
+    {
+      "id": 10,
+      "question": "What is the hardest natural substance on Earth?",
+      "choices": ["Gold", "Diamond", "Iron", "Quartz"],
+      "answer": "Diamond"
     }
   ]
 }
