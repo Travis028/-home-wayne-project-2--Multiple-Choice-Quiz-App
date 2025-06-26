@@ -13,7 +13,14 @@
   box-sizing: border-box;
 }
 body {
- 
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem
 }
 #choices {
   list-style: none;
