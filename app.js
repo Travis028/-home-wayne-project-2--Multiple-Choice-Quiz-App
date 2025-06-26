@@ -1,6 +1,11 @@
 let currentQuestionIndex = 0;
 let questions = [];
 let score = 0;
+
+// Sound effects
+const correctSound = new Audio('sounds/correct.mp3');
+const wrongSound = new Audio('sounds/wrong.mp3');
+const nextSound = new Audio('sounds/next.mp3');
  
 const questionEl = document.getElementById("question");
 const choicesEl = document.getElementById("choices");
@@ -57,6 +62,7 @@ function checkAnswer(selected, correct) {
         btn.classList.add('correct');
       }
     });
+    correctSound.play();
   } else {
     feedbackEl.textContent = ` Wrong! Correct answer: ${correct}`;
     buttons.forEach(btn => {
@@ -66,6 +72,7 @@ function checkAnswer(selected, correct) {
         btn.classList.add('incorrect');
       }
     });
+    wrongSound.play();
   }
 
   // Automatically go to next question after 2 seconds
@@ -73,6 +80,7 @@ function checkAnswer(selected, correct) {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions.length) {
       showQuestion();
+      nextSound.play();
     } else {
       endQuiz();
     }
