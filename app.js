@@ -14,7 +14,7 @@ fetch("http://localhost:3000/questions")
     showQuestion();
     })
   .catch(err => {
-    questionEl.textContent = "Failed to load quiz.";
+    questionEl.textContent = "load quiz.";
     console.error(err);
   });
 
