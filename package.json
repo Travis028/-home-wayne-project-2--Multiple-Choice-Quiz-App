@@ -1,0 +1,21 @@
+{
+  "name": "project-2--multiple-choice-quiz-app",
+  "version": "1.0.0",
+  "description": "A modern, interactive multiple-choice quiz application built with HTML, CSS, and JavaScript.",
+  "main": "app.js",
+  "scripts": {
+    "server": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Travis028/-home-wayne-project-2--Multiple-Choice-Quiz-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Travis028/-home-wayne-project-2--Multiple-Choice-Quiz-App/issues"
+  },
+  "homepage": "https://github.com/Travis028/-home-wayne-project-2--Multiple-Choice-Quiz-App#readme"
+}
