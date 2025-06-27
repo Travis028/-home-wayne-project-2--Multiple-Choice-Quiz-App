@@ -2,6 +2,11 @@
 
 A modern, interactive multiple-choice quiz application built with HTML, CSS, and JavaScript.
 
+[GitHub Repository](https://github.com/Travis028/-home-wayne-project-2--Multiple-Choice-Quiz-App)
+
+How to navigate to the file git clone the ssh then make it the working three cd then code .  
+
+
 ## Features
 
 - Interactive multiple-choice questions
@@ -21,7 +26,7 @@ npm install -g json-server
 
 2. Start the JSON server:
 ```bash
-npx json-server --watch db.json --port 3000
+npm json-server --watch db.json --port 3000
 ```
 
 3. Open `index.html` in your web browser
