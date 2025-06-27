@@ -41,6 +41,15 @@ toggleBtn.addEventListener("click", () => {
   isDark = !isDark;
   document.body.classList.toggle("dark-mode", isDark);
   toggleBtn.textContent = isDark ? "Light Mode" : "Dark Mode";
+  
+  // Change button color based on theme
+  if (isDark) {
+    toggleBtn.style.backgroundColor = "#3b82f6";
+    toggleBtn.style.color = "white";
+  } else {
+    toggleBtn.style.backgroundColor = "#e5e7eb";
+    toggleBtn.style.color = "black";
+  }
 });
 
 // Add hover effect for theme toggle button
