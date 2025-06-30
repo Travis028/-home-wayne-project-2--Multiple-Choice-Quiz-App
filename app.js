@@ -7,7 +7,6 @@ const questionEl = document.getElementById("question");
 const choicesEl = document.getElementById("choices");
 const feedbackEl = document.getElementById("feedback");
 const nextBtn = document.getElementById("next-btn");
-const startAgainBtn = document.getElementById("start-again-btn");
 const toggleBtn = document.getElementById("toggle-theme");
 
 // Theme toggle functionality
@@ -52,6 +51,87 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
+// Next button event listener
+nextBtn.addEventListener('click', () => {
+  if (currentQuestionIndex < questions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion();
+  } else {
+    questionEl.textContent = `Quiz Completed! Your score: ${score}/${questions.length}`;
+    nextBtn.style.display = 'none';
+  }
+});
+
+// Choice selection event listener
+choicesEl.addEventListener('click', (e) => {
+  const selectedChoice = e.target;
+  if (!selectedChoice) return;
+  
+  const isCorrect = selectedChoice.dataset.correct === 'true';
+  
+  if (isCorrect) {
+    score++;
+    feedbackEl.innerHTML = '<span style="color: #ef4444;">❌ Incorrect!</span>';
+  } else {
+    feedbackEl.innerHTML = '<span style="color: #10b981;">✅ Correct!</span>';
+  }
+  
+  selectedChoice.style.backgroundColor = isCorrect ? '#10b981' : '#ef4444';
+  const choices = choicesEl.querySelectorAll('li');
+  choices.forEach(choice => {
+    choice.style.pointerEvents = 'none';
+  });
+});
+
+// Function to show current question
+function showQuestion() {
+  if (currentQuestionIndex < questions.length) {
+    const question = questions[currentQuestionIndex];
+    questionEl.textContent = question.question;
+    choicesEl.innerHTML = '';
+    feedbackEl.textContent = '';
+    
+    question.choices.forEach((choice, index) => {
+      const li = document.createElement('li');
+      li.textContent = choice;
+      li.dataset.correct = question.correctAnswer === index.toString();
+      choicesEl.appendChild(li);
+    });
+  }
+}
+
+// Fetch questions and start quiz
+fetch('https://json-quiz-project-server.onrender.com/questions')
+  .then(res => res.json())
+  .then(data => {
+    questions = data;
+    showQuestion();
+  })
+  .catch(err => {
+    questionEl.textContent = 'Error loading quiz. Please try again later.';
+  });
+  
+// Listen for system theme changes
+prefersDarkScheme.addEventListener('change', (e) => {
+  if (!savedTheme) {
+    setTheme(e.matches);
+  }
+});
+
+// Theme toggle functionality
+themeToggle.addEventListener('click', () => {
+  const isDark = !document.body.classList.contains('dark-mode');
+  setTheme(isDark);
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Remove the old toggle button since we're using the theme-toggle button
+document.querySelector('.toggle-btn').remove();
+
+// Rest of the quiz functionality...
+ toggleBtn.style.color = "black";
+
+
 // Add hover effect for theme toggle button
 toggleBtn.addEventListener("mouseover", () => {
   toggleBtn.style.transform = "scale(1.05)";
@@ -60,14 +140,14 @@ toggleBtn.addEventListener("mouseout", () => {
   toggleBtn.style.transform = "scale(1)";
 });
 
-fetch("http://localhost:3000/questions")
+fetch('https://json-quiz-project-server.onrender.com/questions')
   .then(res => res.json())
   .then(data => {
     questions = data;
     showQuestion();
   })
   .catch(err => {
-    questionEl.textContent = "load quiz.";
+    questionEl.textContent = 'Error loading quiz. Please try again later.';
     console.error(err);
   });
 
@@ -177,14 +257,14 @@ function resetQuiz() {
   questionEl.textContent = "";
   nextBtn.style.display = "none";
   startAgainBtn.style.display = "none";
-  fetch("http://localhost:3000/questions")
+  fetch('https://json-quiz-project-server.onrender.com/questions')
     .then(res => res.json())
     .then(data => {
       questions = data;
       showQuestion();
     })
     .catch(err => {
-      questionEl.textContent = "loading quiz.";
+      questionEl.textContent = 'Error loading quiz. Please try again later.';
       console.error(err);
     });
 }

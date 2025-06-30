@@ -48,12 +48,7 @@ body {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
   width: 100%;
-  max-width: 600px;
-  margin: 2rem auto;
-  animation: fadeIn 0.5s ease-in;
-  transition: transform 0.3s ease;
 }
-
 .toggle-btn {
   position:  fixed;
   top: 0.1rem;
