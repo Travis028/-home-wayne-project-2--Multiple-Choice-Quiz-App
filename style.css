@@ -1,17 +1,3 @@
-:root {
-  --primary-color: #2563eb;
-  --secondary-color: #3b82f6;
-  --error-color: #ef4444;
-  --success-color: #10b981;
-  --text-color: #1f2937;
-  --background-color: #255ecf;
-  --hover-color: #1d4ed8;
-  --card-bg: #ffffff;
-  --border-radius: 12px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -19,15 +5,115 @@
 }
 
 body {
-  font-family:  'Arial', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2  100%);
-  background-attachment: fixed;
-  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: 1.6;
+  justify-content: center;
+  padding: 20px;
+  color: #1f2937;
+}
+
+#quiz-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+#question {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+#choices {
+  list-style: none;
+}
+
+#choices li {
+  background: #f9fafb;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#choices li:hover {
+  background: #f3f4f6;
+}
+
+#choices li.correct {
+  background: #dcfce7;
+  color: #10b981;
+}
+
+#choices li.incorrect {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+#feedback {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+#feedback span {
+  font-weight: bold;
+}
+
+button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background: #2563eb;
+}
+
+.dark-mode {
+  background: #1f2937;
+  color: #f3f4f6;
+}
+
+.dark-mode #quiz-container {
+  background: #111827;
+}
+
+.dark-mode #choices li {
+  background: #1f2937;
+  color: #f3f4f6;
+}
+
+.dark-mode #choices li.correct {
+  background: #111827;
+  color: #10b981;
+}
+
+.dark-mode #choices li.incorrect {
+  background: #1f2937;
+  color: #ef4444;
+}
+
+.dark-mode button {
+  background: #3b82f6;
+}
+
+.dark-mode button:hover {
+  background: #2563eb;
 }
 
 /* Dark mode styles */
