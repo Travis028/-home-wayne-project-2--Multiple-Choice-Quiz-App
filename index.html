@@ -14,10 +14,27 @@
 <body>
     <button id="toggle-theme" class="toggle-btn">Dark theme</button>
     <div id="quiz-container">
-        <h2 id="question">Loading...</h2>
-        <ul id="choices"></ul>
-        <p id="feedback"></p>
-        <button id="next-btn">Next</button>
+        <!-- Loading screen -->
+        <div id="loading-screen" class="loading-screen">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p>Loading Quiz...</p>
+            </div>
+        </div>
+        
+        <!-- Audio elements -->
+        <audio id="correct-sound" src="https://assets.mixkit.co/active_storage/sfx/1942/1942-preview.mp3"></audio>
+        <audio id="incorrect-sound" src="https://assets.mixkit.co/active_storage/sfx/1943/1943-preview.mp3"></audio>
+        <audio id="start-sound" src="https://assets.mixkit.co/active_storage/sfx/1944/1944-preview.mp3"></audio>
+        <audio id="end-sound" src="https://assets.mixkit.co/active_storage/sfx/1945/1945-preview.mp3"></audio>
+        <audio id="loading-sound" src="https://assets.mixkit.co/active_storage/sfx/1946/1946-preview.mp3"></audio>
+        <div id="score-display" style="display: none; text-align: center; margin-bottom: 20px; font-size: 1.2em;"></div>
+        <button id="start-btn">Start Quiz</button>
+        <h2 id="question" style="display: none;">Loading...</h2>
+        <ul id="choices" style="display: none;"></ul>
+        <p id="feedback" style="display: none;"></p>
+        <button id="next-btn" style="display: none;">Next</button>
+        <button id="start-again-btn" style="display: none;">Start Again</button>
     </div>
     <script src="app.js"></script>
 </body>
